@@ -1,0 +1,7 @@
+{
+  "name": "avaliacaoMetabolica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
