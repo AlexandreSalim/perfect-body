@@ -1,0 +1,240 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Dados Masculinos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <!-- Campo Nome -->
+      <div class="form-field">
+      <ion-input 
+      label="Nome" 
+      label-placement="floating" 
+      fill="outline" 
+      placeholder="Digite o nome"
+      id="nome"
+      type="text"
+      formControlName="nome"
+      class="input-field"
+      ></ion-input>
+    </div>
+    
+    <div class="inputDoLado">
+         <!-- Campo Altura -->
+         <div class="form-field">
+           <ion-input
+             label="Altura" 
+             label-placement="floating" 
+             fill="outline" 
+             placeholder="Digite sua altura"
+             id="altura"
+             type="number"
+             formControlName="altura"
+             class="input-field">
+           </ion-input>
+         </div>
+         
+         <!-- Campo Idade -->
+         <div class="form-field">
+        <ion-input
+          label="Idade" 
+          label-placement="floating" 
+          fill="outline" 
+          placeholder="Digite sua idade"
+          id="idade"
+          type="number"
+          formControlName="idade"
+          class="input-field">
+        </ion-input>
+      </div>
+    </div>
+      
+      <div class="inputDoLado">
+        <!-- Campo Peso -->
+        <div class="form-field">
+          <ion-input
+            label="Peso (kg)" 
+            label-placement="floating" 
+            fill="outline" 
+            placeholder="Digite seu peso"
+            id="peso"
+            type="number"
+            formControlName="peso"
+            class="input-field"
+            placeholder="Digite seu ">
+          </ion-input>
+        </div>
+  
+        <!-- Campo DC Subscapular -->
+        <div class="form-field">
+          <ion-input
+            label="DC Subscapular" 
+            label-placement="floating" 
+            fill="outline" 
+            placeholder="Digite o valor"
+            id="dcSubscapular"
+            type="number"
+            formControlName="dcSubscapular"
+            class="input-field">
+          </ion-input>
+        </div>
+      </div>
+
+      <!-- Campo DC Triceps -->
+    <ion-input
+      label="DC Triceps" 
+      label-placement="floating" 
+      fill="outline" 
+      placeholder="Digite o valor"
+      id="dcTriceps"
+      type="number"
+      formControlName="dcTriceps"
+      class="input-field">
+    </ion-input>
+
+      <div class="inputDoLado">
+        <!-- Campo DC Supra-ilíaca -->
+        <div class="form-field">
+          <ion-input
+            label="DC Supra-ilíaca" 
+            label-placement="floating" 
+            fill="outline" 
+            placeholder="Digite o valor"
+            id="dcSupraIlíaca"
+            type="number"
+            formControlName="dcSupraIlíaca"
+            class="input-field">
+          </ion-input>
+        </div>
+  
+        <!-- Campo DC Panturrilha Medial -->
+        <div class="form-field">
+          <ion-input
+            label="DC Panturrilha Medial" 
+            label-placement="floating" 
+            fill="outline" 
+            placeholder="Digite o valor"
+            id="dcPanturrilhaMedial"
+            type="number"
+            formControlName="dcPanturrilhaMedial"
+            class="input-field">
+          </ion-input>
+        </div>
+        
+        <!-- Campo FS -->
+        <div class="form-field">
+          <ion-input
+          label="FA" 
+          label-placement="floating" 
+          fill="outline" 
+          placeholder="Digite o valor"
+          id="fa"
+          type="number"
+          formControlName="fa"
+          class="input-field">
+        </ion-input>
+      </div>
+      
+      <!-- Campo Tempo -->
+      <div class="form-field">
+          <ion-input
+            label="Tempo" 
+            label-placement="floating" 
+            fill="outline" 
+            placeholder="Digite o valor"
+            id="tempo"
+            type="number"
+            formControlName="tempo"
+            class="input-field">
+          </ion-input>
+        </div>
+      </div>
+        
+      <!-- Campo C. Cintura -->
+      <div class="form-field">
+        <ion-input
+          label="C. Cintura" 
+          label-placement="floating" 
+          fill="outline" 
+          placeholder="Digite o valor"
+          id="cCintura"
+          type="number"
+          formControlName="cCintura"
+          class="input-field">
+        </ion-input>
+      </div>
+        <div class="inputDoLado">
+        
+        <!-- Campo S. Quadril -->
+        <div class="form-field">
+          <ion-input
+          label="S. Quadril" 
+          label-placement="floating" 
+          fill="outline" 
+          placeholder="Digite o valor"
+          id="cQuadril"
+          type="number"
+          formControlName="cQuadril"
+          class="input-field">
+        </ion-input>
+        
+      </div>
+      <!-- Campo METs -->
+      <div class="form-field">
+        <ion-input
+        label="METs" 
+        label-placement="floating" 
+        fill="outline" 
+        placeholder="Digite o valor"
+        id="mets"
+        type="number"
+        formControlName="mets"
+        class="input-field">
+      </ion-input>
+    </div>
+  </div>
+</div>
+
+    <button type="submit" expand="block" class="submit-button">
+      Cálcular
+    </button>
+  </form>
+
+  <!-- Seção para exibir os resultados dos cálculos -->
+  <div class="results-container" *ngIf="calculo">
+    <div class="result-field">
+      <label>D</label>
+      <ion-input [value]="d" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>G%</label>
+      <ion-input [value]="gPercent" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>Massa Magra</label>
+      <ion-input [value]="massaMagra" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>IMC</label>
+      <ion-input [value]="imc" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>IRCQ</label>
+      <ion-input [value]="ircq" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>GER</label>
+      <ion-input [value]="ger" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>GEPE</label>
+      <ion-input [value]="gepe" readonly class="input-field"></ion-input>
+    </div>
+    <div class="result-field">
+      <label>NET</label>
+      <ion-input [value]="net" readonly class="input-field"></ion-input>
+    </div>
+  </div>
+</ion-content>
